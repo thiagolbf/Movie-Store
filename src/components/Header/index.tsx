@@ -1,7 +1,7 @@
 export const HeaderComponent = () => {
   return (
     <div>
-      <p>Header component</p>
+      <p>Header component - just for test again</p>
     </div>
   );
 };
