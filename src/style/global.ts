@@ -18,6 +18,7 @@ export const GlobalStyle = createGlobalStyle`
     --lightYellow: #fdf59c;
     --lightGreen: #a4c9bb;
     --lightPurple: #857db1;
+    --lightBlue: #4169e1;
     
 
 
