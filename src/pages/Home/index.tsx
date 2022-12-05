@@ -1,12 +1,23 @@
-import { MoviesCard } from "./style";
+import { MoviesCard, PageBox } from "./style";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { store } from "../../store";
+import { getPopularMoviesThunk } from "../../store/modules/popularmovies/thunks";
+
+import { FaAngleLeft } from "react-icons/fa";
+import { FaAngleRight } from "react-icons/fa";
 
 import { MovieCardComponent } from "../../components/MovieCard";
+
 interface StoreProps {
-  popularmovies: Movie[];
+  popularmovies: AllData;
   genres: Genre[];
+}
+
+interface AllData {
+  page: number;
+  total_pages: number;
+  results: Movie[];
 }
 
 interface Movie {
@@ -32,13 +43,15 @@ interface Genre {
 }
 
 export const HomePage = () => {
+  const dispatch = useDispatch<any>();
+
   const movies = useSelector((store: StoreProps) => store.popularmovies);
   const genres = useSelector((store: StoreProps) => store.genres);
 
   return (
     <>
       <MoviesCard>
-        {movies.map((element) => {
+        {movies.results.map((element) => {
           const arrGenres = [];
           for (let i = 0; i < element.genre_ids.length; i++) {
             for (let x = 0; x < genres.length; x++) {
@@ -60,6 +73,31 @@ export const HomePage = () => {
           );
         })}
       </MoviesCard>
+      <PageBox>
+        <button
+          onClick={() => {
+            if (movies.page > 1) {
+              dispatch(getPopularMoviesThunk(movies.page - 1));
+            } else {
+              alert("Essa é a primeira página");
+            }
+          }}
+        >
+          <FaAngleLeft />
+        </button>
+        <p>Página: {movies.page}</p>
+        <button
+          onClick={() => {
+            if (movies.page < 500) {
+              dispatch(getPopularMoviesThunk(movies.page + 1));
+            } else {
+              alert("Essa é a última página");
+            }
+          }}
+        >
+          <FaAngleRight />
+        </button>
+      </PageBox>
     </>
   );
 };

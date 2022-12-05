@@ -1,6 +1,8 @@
 import { GET_POPULAR_MOVIES } from "./actionTypes";
 
 interface PopularMovieProps {
+  page: number;
+  total_pages: number;
   results: Movie[];
 }
 
