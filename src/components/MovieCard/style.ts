@@ -2,14 +2,17 @@ import styled from "styled-components";
 
 export const MovieCard = styled.div`
   width: 200px;
+  max-height: max-content;
   height: max-content;
-  border: 3px solid var(--lightGrey);
+  border: 2px solid var(--black);
   text-align: center;
   font-family: var(--roboto);
+  background-color: var(--lightGrey);
 
   > h4 {
     text-align: center;
     margin: 5px 0;
+    font-size: 12px;
   }
 
   > p {
@@ -39,7 +42,7 @@ export const BackgroundImage = styled.div<BackgroundImageProps>`
   background-image: ${(props) =>
     `url(https://image.tmdb.org/t/p/w200${props.image})`};
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   display: flex;
   flex-direction: column;
