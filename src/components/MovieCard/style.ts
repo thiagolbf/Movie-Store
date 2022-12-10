@@ -55,8 +55,8 @@ export const BackgroundImage = styled.div<BackgroundImageProps>`
   > p {
     color: var(--white);
     text-align: center;
-    position: relative;
-    top: 150px;
+    margin-top: 180px;
+    height: 100%;
   }
 `;
 
