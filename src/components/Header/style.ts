@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const Header = styled.header`
   background-color: var(--lightGreen);
+  position: fixed;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;

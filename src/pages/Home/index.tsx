@@ -12,6 +12,7 @@ import { MovieCardComponent } from "../../components/MovieCard";
 interface StoreProps {
   popularmovies: AllData;
   genres: Genre[];
+  cartsidebar: boolean;
 }
 
 interface AllData {
@@ -47,11 +48,14 @@ export const HomePage = () => {
 
   const movies = useSelector((store: StoreProps) => store.popularmovies);
   const genres = useSelector((store: StoreProps) => store.genres);
+  const cartSideBar = useSelector((store: StoreProps) => store.cartsidebar);
+
+  console.log(cartSideBar);
 
   return (
     <>
-      <MoviesCard>
-        {movies.results.map((element) => {
+      <MoviesCard cartPageOn={cartSideBar}>
+        {movies.results?.map((element) => {
           const arrGenres = [];
           for (let i = 0; i < element.genre_ids.length; i++) {
             for (let x = 0; x < genres.length; x++) {
@@ -73,7 +77,7 @@ export const HomePage = () => {
           );
         })}
       </MoviesCard>
-      <PageBox>
+      <PageBox cartPageOn={cartSideBar}>
         <button
           onClick={() => {
             if (movies.page > 1) {
