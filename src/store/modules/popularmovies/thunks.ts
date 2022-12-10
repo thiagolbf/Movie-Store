@@ -14,4 +14,12 @@ export const getPopularMoviesThunk = (page: number) => (dispatch: Dispatch) => {
     .catch((err) => {
       console.log(err);
     });
+
+  // const getData = async () => {
+  //   const response = await moviesApi.get(
+  //     `movie/popular?api_key=41c0ef2437f7b84f0296214347b788c7&language=pt-BR&page=${page}`
+  //   );
+  //   dispatch(getPopularMovies(response.data));
+  // };
+  // getData();
 };
