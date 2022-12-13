@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const CartPageBox = styled.div`
   height: 94vh; /* 100% Full-height */
-  width: 250px; /* 0 width - change this with JavaScript */
+  width: 280px; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
   /* z-index: 1;  */ /* Stay on top */
   top: 6vh; /* Stay at the top */
@@ -17,9 +17,15 @@ export const CartPageBox = styled.div`
   flex-direction: column;
   align-items: center;
 
-  > div {
+  > div.finish {
     position: fixed;
     bottom: 0;
     margin-bottom: 50px;
   }
+`;
+
+export const EndCart = styled.div`
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 50px;
 `;

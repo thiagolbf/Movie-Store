@@ -1,4 +1,4 @@
-import { CartPageBox } from "./style";
+import { CartPageBox, EndCart } from "./style";
 
 export const CartPage = () => {
   return (
@@ -7,10 +7,10 @@ export const CartPage = () => {
         MEU CARRINHO
         <p>filme 1</p>
         <p>filme 2</p>
-        <div>
+        <EndCart>
           <p>Finalizar compra</p>
           <button>finalizar compra</button>
-        </div>
+        </EndCart>
       </CartPageBox>
     </>
   );

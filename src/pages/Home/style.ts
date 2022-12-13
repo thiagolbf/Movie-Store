@@ -15,7 +15,7 @@ export const MoviesCard = styled.div<MoviesCardProps>`
     margin: 20px 40px;
   }
   @media (min-width: 600px) {
-    margin-right: ${(props) => (props.cartPageOn ? "250px" : "none")};
+    margin-right: ${(props) => (props.cartPageOn ? "280px" : "none")};
   }
   transition: margin-right 0.5s;
 `;
@@ -35,7 +35,7 @@ export const PageBox = styled.div<PageBoxProps>`
     padding: 5px;
   }
   @media (min-width: 600px) {
-    margin-right: ${(props) => (props.cartPageOn ? "250px" : "none")};
+    margin-right: ${(props) => (props.cartPageOn ? "280px" : "none")};
   }
   transition: margin-right 0.5s;
 `;
