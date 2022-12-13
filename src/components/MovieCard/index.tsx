@@ -42,7 +42,7 @@ export const MovieCardComponent = ({
             })}
           </div>
         </RatedNumber>
-        <p>Valor R$79,99 </p>
+        <p>Valor R$9,99 </p>
         <button>Adicionar</button>
       </MovieCard>
     </>
