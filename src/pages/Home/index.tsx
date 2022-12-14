@@ -13,6 +13,7 @@ interface StoreProps {
   popularmovies: AllData;
   genres: Genre[];
   cartsidebar: boolean;
+  moviescart: Movie[];
 }
 
 interface AllData {
@@ -49,8 +50,16 @@ export const HomePage = () => {
   const movies = useSelector((store: StoreProps) => store.popularmovies);
   const genres = useSelector((store: StoreProps) => store.genres);
   const cartSideBar = useSelector((store: StoreProps) => store.cartsidebar);
+  const moviesCart = useSelector((store: StoreProps) => store.moviescart);
 
-  console.log(cartSideBar);
+  // let valorTeste = 0;
+  // for (let i = 0; i < moviesCart.length; i++) {
+  //   if (moviesCart[i].id === 436270) {
+  //     valorTeste += 1;
+  //   }
+  // }
+
+  // console.log(valorTeste);
 
   return (
     <>
@@ -73,6 +82,7 @@ export const HomePage = () => {
               average={element.vote_average}
               genre={arrGenres}
               key={element.id}
+              movieSelected={element}
             />
           );
         })}
