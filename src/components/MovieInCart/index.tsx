@@ -2,18 +2,27 @@ import { CartMovieInsideBox } from "./style";
 
 import { BiTrash } from "react-icons/bi";
 
-export const MovieInCartComponent = () => {
+interface MovieInCartComponentProps {
+  title: string;
+  image: string;
+  quantity: number;
+  price: number;
+}
+
+export const MovieInCartComponent = ({
+  title,
+  image,
+  quantity,
+  price,
+}: MovieInCartComponentProps) => {
   return (
     <>
       <CartMovieInsideBox>
-        <img
-          src="https://image.tmdb.org/t/p/w200//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg"
-          alt="poster"
-        />
+        <img src={`https://image.tmdb.org/t/p/w200//${image}`} alt="poster" />
         <div>
-          <p>Nome do Filmedddd</p>
-          <p>10</p>
-          <p>R$9,99</p>
+          <p>{title}</p>
+          <p>{quantity}</p>
+          <p>{price}</p>
 
           <button>
             <abbr title="Remover carrinho">
