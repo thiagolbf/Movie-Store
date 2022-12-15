@@ -52,7 +52,7 @@ export const MovieCardComponent = ({
     <>
       <MovieCard>
         <BackgroundImage image={image}>
-          <AiFillHeart size={25} />
+          <AiFillHeart size={20} />
           <p>{releaseDate}</p>
         </BackgroundImage>
         <h4>{title}</h4>
