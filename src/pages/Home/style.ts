@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 interface MoviesCardProps {
   cartPageOn: boolean;
+  favPageOn: boolean;
 }
 
 export const MoviesCard = styled.div<MoviesCardProps>`
@@ -15,13 +16,15 @@ export const MoviesCard = styled.div<MoviesCardProps>`
     margin: 20px 40px;
   }
   @media (min-width: 600px) {
-    margin-right: ${(props) => (props.cartPageOn ? "280px" : "none")};
+    margin-right: ${(props) =>
+      props.cartPageOn || props.favPageOn ? "280px" : "none"};
   }
   transition: margin-right 0.5s;
 `;
 
 interface PageBoxProps {
   cartPageOn: boolean;
+  favPageOn: boolean;
 }
 
 export const PageBox = styled.div<PageBoxProps>`
@@ -35,7 +38,8 @@ export const PageBox = styled.div<PageBoxProps>`
     padding: 5px;
   }
   @media (min-width: 600px) {
-    margin-right: ${(props) => (props.cartPageOn ? "280px" : "none")};
+    margin-right: ${(props) =>
+      props.cartPageOn || props.favPageOn ? "280px" : "none"};
   }
   transition: margin-right 0.5s;
 `;

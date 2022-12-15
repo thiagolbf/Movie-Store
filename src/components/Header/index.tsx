@@ -1,4 +1,5 @@
 import { CartPage } from "../Cart";
+import { FavPage } from "../Favorites";
 
 import { Header, InputSearch, IconsContainer } from "./style";
 
@@ -10,16 +11,20 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { openCartSideBarThunk } from "../../store/modules/cartmodal/thunks";
+import { openFavSideBarThunk } from "../../store/modules/favmodal/thunks";
 
 interface StoreProps {
   cartsidebar: boolean;
+  favsidebar: boolean;
 }
 
 export const HeaderComponent = () => {
   const dispatch = useDispatch<any>();
 
+  const [favPage, setFavPage] = useState(false);
   const [cartPage, setCartPage] = useState(false);
   const cartSideBar = useSelector((store: StoreProps) => store.cartsidebar);
+  const favSideBar = useSelector((store: StoreProps) => store.favsidebar);
   const valor = 0;
 
   return (
@@ -36,12 +41,18 @@ export const HeaderComponent = () => {
         </InputSearch>
 
         <IconsContainer>
-          <button>
+          <button
+            onClick={() => {
+              dispatch(openCartSideBarThunk(false, setCartPage));
+              dispatch(openFavSideBarThunk(!favPage, setFavPage));
+            }}
+          >
             <AiFillHeart size={20} />
           </button>
 
           <button
             onClick={() => {
+              dispatch(openFavSideBarThunk(false, setFavPage));
               dispatch(openCartSideBarThunk(!cartPage, setCartPage));
             }}
           >
@@ -50,7 +61,8 @@ export const HeaderComponent = () => {
           {valor >= 1 ? <div>{valor}</div> : <div>0</div>}
         </IconsContainer>
       </Header>
-      {cartSideBar ? <CartPage /> : null}
+      {cartSideBar && !favSideBar ? <CartPage /> : null}
+      {favSideBar ? <FavPage /> : null}
     </>
   );
 };

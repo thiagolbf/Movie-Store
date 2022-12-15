@@ -37,7 +37,7 @@ interface BackgroundImageProps {
 }
 
 export const BackgroundImage = styled.div<BackgroundImageProps>`
-  height: 200px;
+  height: max-content;
 
   background-image: ${(props) =>
     `url(https://image.tmdb.org/t/p/w200${props.image})`};
@@ -49,7 +49,6 @@ export const BackgroundImage = styled.div<BackgroundImageProps>`
 
   > svg {
     align-self: flex-end;
-    color: var(--white);
   }
 
   > p {
