@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CartPageBox = styled.div`
+export const FavPageBox = styled.div`
   height: 94vh; /* 100% Full-height */
   width: 280px; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
@@ -16,10 +16,4 @@ export const CartPageBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-export const EndCart = styled.div`
-  position: fixed;
-  bottom: 0;
-  margin-bottom: 50px;
 `;

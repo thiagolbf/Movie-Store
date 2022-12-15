@@ -13,6 +13,7 @@ interface StoreProps {
   popularmovies: AllData;
   genres: Genre[];
   cartsidebar: boolean;
+  favsidebar: boolean;
   moviescart: Movie[];
 }
 
@@ -50,6 +51,7 @@ export const HomePage = () => {
   const movies = useSelector((store: StoreProps) => store.popularmovies);
   const genres = useSelector((store: StoreProps) => store.genres);
   const cartSideBar = useSelector((store: StoreProps) => store.cartsidebar);
+  const favSideBar = useSelector((store: StoreProps) => store.favsidebar);
   const moviesCart = useSelector((store: StoreProps) => store.moviescart);
 
   // let valorTeste = 0;
@@ -63,7 +65,7 @@ export const HomePage = () => {
 
   return (
     <>
-      <MoviesCard cartPageOn={cartSideBar}>
+      <MoviesCard cartPageOn={cartSideBar} favPageOn={favSideBar}>
         {movies.results?.map((element) => {
           const arrGenres = [];
           for (let i = 0; i < element.genre_ids.length; i++) {
@@ -87,7 +89,7 @@ export const HomePage = () => {
           );
         })}
       </MoviesCard>
-      <PageBox cartPageOn={cartSideBar}>
+      <PageBox cartPageOn={cartSideBar} favPageOn={favSideBar}>
         <button
           onClick={() => {
             if (movies.page > 1) {
