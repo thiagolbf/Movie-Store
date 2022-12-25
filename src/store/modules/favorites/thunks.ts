@@ -1,5 +1,10 @@
 import { addFav } from "./action";
 import { Dispatch } from "redux";
+
+interface State {
+  moviesfav: Movie[];
+}
+
 interface Movie {
   adult: boolean;
   backdrop_path: string;
@@ -16,6 +21,22 @@ interface Movie {
   vote_average: number;
   vote_count: number;
 }
-export const addFavThunk = (movieSelect: Movie) => (dispatch: Dispatch) => {
-  dispatch(addFav(movieSelect));
-};
+export const addFavThunk =
+  (movieSelect: Movie) => (dispatch: Dispatch, getstate: () => State) => {
+    const { moviesfav } = getstate();
+
+    const check = moviesfav.some((element) => {
+      return element.id === movieSelect.id;
+    });
+
+    console.log(check);
+
+    if (!check) {
+      dispatch(addFav([...moviesfav, movieSelect]));
+    } else {
+      const filtered = moviesfav.filter((element) => {
+        return element.id !== movieSelect.id;
+      });
+      dispatch(addFav(filtered));
+    }
+  };

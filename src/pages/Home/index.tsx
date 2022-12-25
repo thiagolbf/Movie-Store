@@ -7,6 +7,9 @@ import { getPopularMoviesThunk } from "../../store/modules/popularmovies/thunks"
 import { FaAngleLeft } from "react-icons/fa";
 import { FaAngleRight } from "react-icons/fa";
 
+import { AiFillHeart } from "react-icons/ai";
+import { FaRegHeart } from "react-icons/fa";
+
 import { MovieCardComponent } from "../../components/MovieCard";
 
 interface StoreProps {
@@ -15,6 +18,7 @@ interface StoreProps {
   cartsidebar: boolean;
   favsidebar: boolean;
   moviescart: Movie[];
+  moviesfav: Movie[];
 }
 
 interface AllData {
@@ -53,7 +57,7 @@ export const HomePage = () => {
   const cartSideBar = useSelector((store: StoreProps) => store.cartsidebar);
   const favSideBar = useSelector((store: StoreProps) => store.favsidebar);
   const moviesCart = useSelector((store: StoreProps) => store.moviescart);
-
+  const moviesfav = useSelector((store: StoreProps) => store.moviesfav);
   // let valorTeste = 0;
   // for (let i = 0; i < moviesCart.length; i++) {
   //   if (moviesCart[i].id === 436270) {
@@ -68,6 +72,15 @@ export const HomePage = () => {
       <MoviesCard cartPageOn={cartSideBar} favPageOn={favSideBar}>
         {movies.results?.map((element) => {
           const arrGenres = [];
+          let favIcon = FaRegHeart;
+
+          const checkFavCart = moviesfav.some((element2) => {
+            return element2.id === element.id;
+          });
+          if (checkFavCart) {
+            favIcon = AiFillHeart;
+          }
+
           for (let i = 0; i < element.genre_ids.length; i++) {
             for (let x = 0; x < genres.length; x++) {
               if (element.genre_ids[i] === genres[x].id) {
@@ -85,6 +98,7 @@ export const HomePage = () => {
               genre={arrGenres}
               key={element.id}
               movieSelected={element}
+              icon={favIcon}
             />
           );
         })}

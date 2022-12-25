@@ -6,6 +6,8 @@ import { AiFillHeart } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 
 import { addCartThunk } from "../../store/modules/cart/thunks";
+import { addFavThunk } from "../../store/modules/favorites/thunks";
+import { IconType } from "react-icons";
 
 interface MovieCardComponentProps {
   image: string;
@@ -14,6 +16,7 @@ interface MovieCardComponentProps {
   average: number;
   genre: Genres[];
   movieSelected: MovieProps;
+  icon: IconType;
 }
 
 interface Genres {
@@ -45,6 +48,7 @@ export const MovieCardComponent = ({
   average,
   genre,
   movieSelected,
+  icon: Icon,
 }: MovieCardComponentProps) => {
   const dispatch = useDispatch<any>();
 
@@ -52,7 +56,10 @@ export const MovieCardComponent = ({
     <>
       <MovieCard>
         <BackgroundImage image={image}>
-          <AiFillHeart size={20} />
+          <button onClick={() => dispatch(addFavThunk(movieSelected))}>
+            <Icon size={20} />
+          </button>
+
           <p>{releaseDate}</p>
         </BackgroundImage>
         <h4>{title}</h4>
