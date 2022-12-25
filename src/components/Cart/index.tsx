@@ -55,6 +55,7 @@ export const CartPage = () => {
               key={element.movie.id}
               quantity={element.qty}
               price={element.price}
+              movieSelected={element.movie}
             />
           );
         })}

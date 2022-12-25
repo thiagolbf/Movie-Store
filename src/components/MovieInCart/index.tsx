@@ -1,3 +1,6 @@
+import { useDispatch } from "react-redux";
+import { removeCartThunk } from "../../store/modules/cart/thunks";
+
 import { CartMovieInsideBox } from "./style";
 
 import { BiTrash } from "react-icons/bi";
@@ -7,6 +10,24 @@ interface MovieInCartComponentProps {
   image: string;
   quantity: number;
   price: number;
+  movieSelected: MovieProps;
+}
+
+interface MovieProps {
+  adult: boolean;
+  backdrop_path: string;
+  genre_ids: number[];
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  populatiry: number;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
 }
 
 export const MovieInCartComponent = ({
@@ -14,7 +35,10 @@ export const MovieInCartComponent = ({
   image,
   quantity,
   price,
+  movieSelected,
 }: MovieInCartComponentProps) => {
+  const dispatch = useDispatch<any>();
+
   return (
     <>
       <CartMovieInsideBox>
@@ -24,7 +48,7 @@ export const MovieInCartComponent = ({
           <p>{quantity}</p>
           <p>{price}</p>
 
-          <button>
+          <button onClick={() => dispatch(removeCartThunk(movieSelected))}>
             <abbr title="Remover carrinho">
               <BiTrash size={20} />
             </abbr>

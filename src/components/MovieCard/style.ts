@@ -20,7 +20,7 @@ export const MovieCard = styled.div`
     font-size: 12px;
   }
 
-  button {
+  > button {
     width: 100%;
 
     background-color: var(--lightBlue);
@@ -47,8 +47,18 @@ export const BackgroundImage = styled.div<BackgroundImageProps>`
   display: flex;
   flex-direction: column;
 
-  > svg {
-    align-self: flex-end;
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 11%;
+    margin-left: auto;
+    border: 3px solid transparent;
+    outline: none;
+    background-color: var(--lightGrey);
+    > svg {
+      /* align-self: flex-end; */
+    }
   }
 
   > p {

@@ -17,7 +17,7 @@ interface Movie {
   vote_count: number;
 }
 
-export const addFav = (payload: Movie) => ({
+export const addFav = (payload: Movie[]) => ({
   type: ADD_TO_FAV,
   payload,
 });
