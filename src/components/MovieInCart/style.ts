@@ -18,14 +18,17 @@ export const CartMovieInsideBox = styled.div`
   > div {
     display: flex;
     width: 100%;
-    justify-content: space-around;
+    /* justify-content: space-around; */
+    justify-content: space-evenly;
     align-items: center;
+    text-align: center;
 
     > p {
       max-width: 15ch;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      width: 100%;
     }
 
     > button {

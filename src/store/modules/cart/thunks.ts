@@ -115,7 +115,9 @@ export const addCartThunk =
       dispatch(addCart([actualMovie]));
     } else if (moviescart.length > 0 && checando) {
       const check = moviescart.map((element) => {
-        if (element.movie.id === movieSelect.id) {
+        if (element.qty >= 9 && movieSelect === element.movie) {
+          alert("Número máximo de filmes adicionados");
+        } else if (element.movie.id === movieSelect.id) {
           return {
             price: element.price + 9.99,
             qty: element.qty + 1,
@@ -137,4 +139,15 @@ export const addCartThunk =
       };
       dispatch(addCart([...moviescart, actualMovie]));
     }
+  };
+
+export const removeCartThunk =
+  (movieSelect: Movie) => (dispatch: Dispatch, getstate: () => State) => {
+    const { moviescart } = getstate();
+
+    const filtered = moviescart.filter((element) => {
+      return element.movie.id !== movieSelect.id;
+    });
+
+    dispatch(addCart(filtered));
   };
