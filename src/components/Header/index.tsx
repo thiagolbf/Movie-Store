@@ -19,6 +19,7 @@ interface StoreProps {
   cartsidebar: boolean;
   favsidebar: boolean;
   popularmovies: AllData;
+  moviescart: Movie[];
 }
 
 interface AllData {
@@ -52,7 +53,8 @@ export const HeaderComponent = () => {
   const cartSideBar = useSelector((store: StoreProps) => store.cartsidebar);
   const favSideBar = useSelector((store: StoreProps) => store.favsidebar);
   const movies = useSelector((store: StoreProps) => store.popularmovies);
-  const valor = 0;
+  const moviesCart = useSelector((store: StoreProps) => store.moviescart);
+  const valor = moviesCart.length;
 
   return (
     <>

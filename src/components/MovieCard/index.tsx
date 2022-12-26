@@ -57,7 +57,7 @@ export const MovieCardComponent = ({
       <MovieCard>
         <BackgroundImage image={image}>
           <button onClick={() => dispatch(addFavThunk(movieSelected))}>
-            <Icon size={20} />
+            <Icon size={15} />
           </button>
 
           <p>{releaseDate}</p>
@@ -65,7 +65,7 @@ export const MovieCardComponent = ({
         <h4>{title}</h4>
 
         <RatedNumber>
-          <AiFillStar size={30} />
+          <AiFillStar size={20} />
           <p>{average}</p>
           <div>
             Gênero:
