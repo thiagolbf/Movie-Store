@@ -13,6 +13,7 @@ export const MovieCard = styled.div`
     text-align: center;
     margin: 5px 0;
     font-size: 12px;
+    height: 30px;
   }
 
   > p {
@@ -51,14 +52,11 @@ export const BackgroundImage = styled.div<BackgroundImageProps>`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 11%;
+
     margin-left: auto;
-    border: 3px solid transparent;
+    border: 1px solid transparent;
     outline: none;
-    background-color: var(--lightGrey);
-    > svg {
-      /* align-self: flex-end; */
-    }
+    background-color: transparent;
   }
 
   > p {
@@ -81,6 +79,19 @@ export const RatedNumber = styled.div`
   > div {
     font-size: 12px;
     margin: 0 5px;
+    height: 40px;
+    width: 140px;
+    overflow: auto;
+    ::-webkit-scrollbar {
+      width: 5px;
+      background-color: var(--grey);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--black);
+      border-radius: 50px;
+    }
 
     span {
       margin: 2px;

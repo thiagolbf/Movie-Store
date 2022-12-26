@@ -9,6 +9,7 @@ export const CartMovieInsideBox = styled.div`
   font-family: var(--roboto);
   font-size: 12px;
   font-weight: 700;
+  margin: 2px 0;
 
   > img {
     width: 40px;

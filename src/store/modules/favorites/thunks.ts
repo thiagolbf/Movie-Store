@@ -40,3 +40,7 @@ export const addFavThunk =
       dispatch(addFav(filtered));
     }
   };
+
+export const removeAllFavThunk = () => (dispatch: Dispatch) => {
+  dispatch(addFav([]));
+};
