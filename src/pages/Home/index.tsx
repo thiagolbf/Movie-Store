@@ -67,6 +67,7 @@ export const HomePage = () => {
 
   // console.log(valorTeste);
 
+  console.log(moviesCart.length);
   return (
     <>
       <MoviesCard cartPageOn={cartSideBar} favPageOn={favSideBar}>

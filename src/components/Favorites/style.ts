@@ -17,3 +17,42 @@ export const FavPageBox = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+
+export const FavHeader = styled.div`
+  display: flex;
+  text-transform: capitalize;
+  font-family: var(--roboto);
+  justify-content: space-between;
+  width: 100%;
+  margin: 20px 0;
+  font-weight: 700;
+  > p {
+    margin-left: 10px;
+  }
+
+  > button {
+    margin-right: 10px;
+    background-color: transparent;
+    border: 0px solid transparent;
+    border-bottom: 0.5px solid blue;
+    color: blue;
+  }
+`;
+
+export const FavCartBox = styled.div`
+  width: 100%;
+  height: 85vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    background-color: var(--grey);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--black);
+    border-radius: 50px;
+  }
+`;

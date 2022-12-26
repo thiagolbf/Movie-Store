@@ -15,7 +15,7 @@ export const MoviesCard = styled.div<MoviesCardProps>`
   > div {
     margin: 20px 40px;
   }
-  @media (min-width: 600px) {
+  @media (min-width: 675px) {
     margin-right: ${(props) =>
       props.cartPageOn || props.favPageOn ? "280px" : "none"};
   }
@@ -37,7 +37,7 @@ export const PageBox = styled.div<PageBoxProps>`
     margin: 0 10px;
     padding: 5px;
   }
-  @media (min-width: 600px) {
+  @media (min-width: 675px) {
     margin-right: ${(props) =>
       props.cartPageOn || props.favPageOn ? "280px" : "none"};
   }

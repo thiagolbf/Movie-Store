@@ -1,5 +1,6 @@
 import { addCart } from "./action";
 import { Dispatch } from "redux";
+import { parse } from "path";
 
 interface State {
   moviescart: Cart[];
@@ -99,7 +100,7 @@ export const addCartThunk =
   (movieSelect: Movie) => (dispatch: Dispatch, getstate: () => State) => {
     const { moviescart } = getstate();
 
-    const initialPrice = 9.99;
+    const initialPrice: number = 9.99;
     const intialQuantity = 1;
 
     const checando = moviescart.some((element) => {
@@ -119,7 +120,7 @@ export const addCartThunk =
           alert("Número máximo de filmes adicionados");
         } else if (element.movie.id === movieSelect.id) {
           return {
-            price: element.price + 9.99,
+            price: parseFloat((element.price + 9.99).toFixed(2)),
             qty: element.qty + 1,
             movie: element.movie,
           };
@@ -130,6 +131,7 @@ export const addCartThunk =
           movie: element.movie,
         };
       });
+
       dispatch(addCart(check));
     } else {
       const actualMovie = {
@@ -151,3 +153,7 @@ export const removeCartThunk =
 
     dispatch(addCart(filtered));
   };
+
+export const removeAllCartThunk = () => (dispatch: Dispatch) => {
+  dispatch(addCart([]));
+};

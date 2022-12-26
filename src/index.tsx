@@ -13,6 +13,7 @@ import { store } from "./store";
 
 store.dispatch<any>(getGenresThunk());
 store.dispatch<any>(getPopularMoviesThunk(1));
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
