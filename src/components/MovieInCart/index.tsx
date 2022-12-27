@@ -49,7 +49,7 @@ export const MovieInCartComponent = ({
           <p>{price}</p>
 
           <button onClick={() => dispatch(removeCartThunk(movieSelected))}>
-            <abbr title="Remover carrinho">
+            <abbr title="Remover do carrinho">
               <BiTrash size={20} />
             </abbr>
           </button>

@@ -17,6 +17,7 @@ interface MovieCardComponentProps {
   genre: Genres[];
   movieSelected: MovieProps;
   icon: IconType;
+  abbrTitle: string;
 }
 
 interface Genres {
@@ -49,6 +50,7 @@ export const MovieCardComponent = ({
   genre,
   movieSelected,
   icon: Icon,
+  abbrTitle,
 }: MovieCardComponentProps) => {
   const dispatch = useDispatch<any>();
 
@@ -57,7 +59,9 @@ export const MovieCardComponent = ({
       <MovieCard>
         <BackgroundImage image={image}>
           <button onClick={() => dispatch(addFavThunk(movieSelected))}>
-            <Icon size={15} />
+            <abbr title={abbrTitle}>
+              <Icon size={15} />
+            </abbr>
           </button>
 
           <p>{releaseDate}</p>
