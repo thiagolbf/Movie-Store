@@ -49,12 +49,6 @@ export const CartPage = () => {
         </HeaderCart>
         <MoviesCartBox>
           {moviesCart?.map((element) => {
-            // let qty = 0;
-            // for (let i = 0; i < moviesCart.length; i++) {
-            //   if (moviesCart[i].id === element.id) {
-            //     qty += 1;
-            //   }
-            // }
             cartValue = cartValue + element.price;
             return (
               <MovieInCartComponent

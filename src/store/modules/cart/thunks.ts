@@ -1,6 +1,5 @@
 import { addCart } from "./action";
 import { Dispatch } from "redux";
-import { parse } from "path";
 
 interface State {
   moviescart: Cart[];
@@ -37,64 +36,10 @@ interface AllData {
   results: Movie[];
 }
 
-interface Movie {
-  adult: boolean;
-  backdrop_path: string;
-  genre_ids: number[];
-  id: number;
-  original_language: string;
-  original_title: string;
-  overview: string;
-  populatiry: number;
-  poster_path: string;
-  release_date: string;
-  title: string;
-  video: boolean;
-  vote_average: number;
-  vote_count: number;
-}
-
 interface Genre {
   id: number;
   name: string;
 }
-
-// export const addCartThunk =
-//   (movieSelect: Movie) => (dispatch: Dispatch, getstate: () => State) => {
-//     const teste = getstate();
-
-//     if (teste.moviescart.length > 0) {
-//       teste.moviescart.map((element) => {
-//         // if (element.movie.id === movieSelect.id) {
-//         //   return {
-//         //     price: element.price + initialPrice,
-//         //     quantity: element.quantity + intialQuantity,
-//         //     movie: element.movie,
-//         //   };
-//         // } else {
-//         //   return {
-//         //     price: element.price,
-//         //     quantity: element.quantity,
-//         //     movie: element.movie,
-//         //   };
-//         // }
-//         console.log(element.price);
-//       });
-//     } else {
-//     }
-
-//     // if (teste.moviescart.length > 0) {
-//     //   teste.moviescart?.map((element) => {});
-//     // } else {
-//     //   dispatch(
-//     //     addCart({
-//     //       price: initialPrice,
-//     //       quantity: intialQuantity,
-//     //       movie: movieSelect,
-//     //     })
-//     //   );
-//     // }
-//   };
 
 export const addCartThunk =
   (movieSelect: Movie) => (dispatch: Dispatch, getstate: () => State) => {

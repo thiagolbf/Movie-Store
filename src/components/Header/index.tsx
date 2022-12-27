@@ -71,7 +71,7 @@ export const HeaderComponent = () => {
           <AiOutlineSearch size={20} />
         </InputSearch>
 
-        <IconsContainer>
+        <IconsContainer qtyCart={!!valor}>
           <button
             onClick={() => {
               dispatch(openCartSideBarThunk(false, setCartPage));
@@ -89,7 +89,7 @@ export const HeaderComponent = () => {
           >
             <AiOutlineShoppingCart size={20} />
           </button>
-          {valor >= 1 ? <div>{valor}</div> : <div>0</div>}
+          <div>{valor}</div>
         </IconsContainer>
       </Header>
       {cartSideBar && !favSideBar ? <CartPage /> : null}

@@ -1,7 +1,7 @@
 import { MoviesCard, PageBox } from "./style";
 
 import { useSelector, useDispatch } from "react-redux";
-import { store } from "../../store";
+
 import { getPopularMoviesThunk } from "../../store/modules/popularmovies/thunks";
 
 import { FaAngleLeft } from "react-icons/fa";
@@ -56,30 +56,21 @@ export const HomePage = () => {
   const genres = useSelector((store: StoreProps) => store.genres);
   const cartSideBar = useSelector((store: StoreProps) => store.cartsidebar);
   const favSideBar = useSelector((store: StoreProps) => store.favsidebar);
-  const moviesCart = useSelector((store: StoreProps) => store.moviescart);
   const moviesfav = useSelector((store: StoreProps) => store.moviesfav);
-  // let valorTeste = 0;
-  // for (let i = 0; i < moviesCart.length; i++) {
-  //   if (moviesCart[i].id === 436270) {
-  //     valorTeste += 1;
-  //   }
-  // }
 
-  // console.log(valorTeste);
-
-  console.log(moviesCart.length);
   return (
     <>
       <MoviesCard cartPageOn={cartSideBar} favPageOn={favSideBar}>
         {movies.results?.map((element) => {
           const arrGenres = [];
           let favIcon = FaRegHeart;
-
+          let abbrTitle = "Adicionar ao favoritos";
           const checkFavCart = moviesfav.some((element2) => {
             return element2.id === element.id;
           });
           if (checkFavCart) {
             favIcon = AiFillHeart;
+            abbrTitle = "Remover dos favoritos";
           }
 
           for (let i = 0; i < element.genre_ids.length; i++) {
@@ -100,6 +91,7 @@ export const HomePage = () => {
               key={element.id}
               movieSelected={element}
               icon={favIcon}
+              abbrTitle={abbrTitle}
             />
           );
         })}
