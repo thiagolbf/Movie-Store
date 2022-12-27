@@ -41,22 +41,12 @@ export const getPopularMoviesThunk = (page: number) => (dispatch: Dispatch) => {
     .catch((err) => {
       console.log(err);
     });
-
-  // const getData = async () => {
-  //   const response = await moviesApi.get(
-  //     `movie/popular?api_key=41c0ef2437f7b84f0296214347b788c7&language=pt-BR&page=${page}`
-  //   );
-  //   dispatch(getPopularMovies(response.data));
-  // };
-  // getData();
 };
 
 export const searchPopularMoviesThunk =
   (letter: string, page: number) =>
   (dispatch: Dispatch, getstate: () => State) => {
     const teste = getstate();
-
-    // console.log(teste.popularmovies.results);
 
     if (letter === "") {
       moviesApi
@@ -90,14 +80,3 @@ export const searchPopularMoviesThunk =
         });
     }
   };
-
-//   const filterando = teste.popularmovies.results.filter((element) => {
-//     return element.title.toLowerCase().includes(letter);
-//   });
-//   const novo = {
-//     page: teste.popularmovies.page,
-//     total_pages: teste.popularmovies.total_pages,
-//     results: filterando,
-//   };
-//   dispatch(getPopularMovies(novo));
-// }

@@ -37,7 +37,7 @@ export const FavPage = () => {
         <FavHeader>
           <p>meus favoritos</p>
           <button onClick={() => dispatch(removeAllFavThunk())}>
-            <p>esvaziar</p>
+            <p>Esvaziar</p>
           </button>
         </FavHeader>
         <FavCartBox>

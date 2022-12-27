@@ -33,7 +33,28 @@ export const InputSearch = styled.div`
   }
 `;
 
-export const IconsContainer = styled.div`
+interface IconsContainerProps {
+  qtyCart: boolean;
+}
+
+export const IconsContainer = styled.div<IconsContainerProps>`
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
   display: flex;
   margin-right: 10px;
 
@@ -45,6 +66,9 @@ export const IconsContainer = styled.div`
   }
 
   > div {
+    visibility: ${(props) => (props.qtyCart ? "visible" : "hidden")};
+    animation: ${(props) =>
+      props.qtyCart ? "fadeIn 0.5s linear" : "fadeOut 0.5s linear"};
     background-color: var(--lightYellow);
     position: relative;
     text-align: center;
@@ -55,6 +79,9 @@ export const IconsContainer = styled.div`
     border-radius: 100%;
     width: 15px;
     height: 15px;
+    opacity: ${(props) => (props.qtyCart ? "1" : "0")};
+    transition: ${(props) =>
+      props.qtyCart ? "none" : "visibility 0.5s linear"};
   }
 `;
 
