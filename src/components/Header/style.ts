@@ -13,6 +13,7 @@ export const Header = styled.header`
 
   > h3 {
     margin-left: 30px;
+    cursor: pointer;
   }
 `;
 

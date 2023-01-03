@@ -12,14 +12,14 @@ export const CartMovieInsideBox = styled.div`
   margin: 2px 0;
 
   > img {
-    width: 40px;
-    height: 35px;
+    width: 80px;
+    height: 70px;
   }
 
   > div {
     display: flex;
     width: 100%;
-    /* justify-content: space-around; */
+
     justify-content: space-evenly;
     align-items: center;
     text-align: center;
@@ -31,6 +31,7 @@ export const CartMovieInsideBox = styled.div`
       white-space: nowrap;
       width: 100%;
     }
+
     > p.movieTitle {
       text-align: left;
       margin-left: 5px;
