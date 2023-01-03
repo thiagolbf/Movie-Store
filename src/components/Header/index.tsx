@@ -9,6 +9,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { AiOutlineSearch } from "react-icons/ai";
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import { openCartSideBarThunk } from "../../store/modules/cartmodal/thunks";
@@ -46,6 +47,7 @@ interface Movie {
 }
 
 export const HeaderComponent = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch<any>();
 
   const [favPage, setFavPage] = useState(false);
@@ -59,7 +61,15 @@ export const HeaderComponent = () => {
   return (
     <>
       <Header>
-        <h3>LOGO</h3>
+        <h3
+          onClick={() => {
+            dispatch(openCartSideBarThunk(false, setCartPage));
+            dispatch(openFavSideBarThunk(false, setFavPage));
+            navigate("/");
+          }}
+        >
+          LOGO
+        </h3>
 
         <InputSearch>
           <input
@@ -92,7 +102,9 @@ export const HeaderComponent = () => {
           <div>{valor}</div>
         </IconsContainer>
       </Header>
-      {cartSideBar && !favSideBar ? <CartPage /> : null}
+      {cartSideBar && !favSideBar ? (
+        <CartPage setCartPage={setCartPage} setFavPage={setFavPage} />
+      ) : null}
       {favSideBar ? <FavPage /> : null}
     </>
   );

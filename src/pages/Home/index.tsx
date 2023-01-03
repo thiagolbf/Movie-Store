@@ -98,21 +98,26 @@ export const HomePage = () => {
       </MoviesCard>
       <PageBox cartPageOn={cartSideBar} favPageOn={favSideBar}>
         <button
-          onClick={() => {
+          onClick={(event) => {
+            event.preventDefault();
             if (movies.page > 1) {
               dispatch(getPopularMoviesThunk(movies.page - 1));
+              window.scrollTo(0, 0);
             } else {
               alert("Essa é a primeira página");
             }
+            return false;
           }}
         >
           <FaAngleLeft />
         </button>
         <p>Página: {movies.page}</p>
         <button
-          onClick={() => {
+          onClick={(event) => {
+            event.preventDefault();
             if (movies.page < 500) {
               dispatch(getPopularMoviesThunk(movies.page + 1));
+              window.scrollTo(0, 0);
             } else {
               alert("Essa é a última página");
             }
