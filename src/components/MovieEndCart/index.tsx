@@ -30,7 +30,7 @@ interface MovieProps {
   vote_count: number;
 }
 
-export const MovieInCartComponent = ({
+export const MovieInEndCartComponent = ({
   title,
   image,
   quantity,
@@ -46,7 +46,7 @@ export const MovieInCartComponent = ({
         <div>
           <p className="movieTitle">{title}</p>
           <p>{quantity}</p>
-          <p>{price}</p>
+          <p>R$ {price}</p>
 
           <button onClick={() => dispatch(removeCartThunk(movieSelected))}>
             <abbr title="Remover do carrinho">

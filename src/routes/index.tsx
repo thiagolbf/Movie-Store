@@ -1,15 +1,18 @@
 import { Route, Routes } from "react-router-dom";
 
 import { HomePage } from "../pages/Home";
+import { CartResume } from "../pages/StoreCartResume";
 
 import { HeaderComponent } from "../components/Header";
-import { MovieCardComponent } from "../components/MovieCard";
 
 export const RoutesComponent = () => {
   return (
     <>
       <HeaderComponent />
-      <HomePage />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/resumecart" element={<CartResume />} />
+      </Routes>
     </>
   );
 };
