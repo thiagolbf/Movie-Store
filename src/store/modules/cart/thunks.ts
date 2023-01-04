@@ -1,5 +1,6 @@
 import { addCart } from "./action";
 import { Dispatch } from "redux";
+import { toast } from "react-toastify";
 
 interface State {
   moviescart: Cart[];
@@ -58,11 +59,13 @@ export const addCartThunk =
         qty: intialQuantity,
         movie: movieSelect,
       };
+      toast.success("Adicionado ao carrinho");
       dispatch(addCart([actualMovie]));
     } else if (moviescart.length > 0 && checando) {
       const check = moviescart.map((element) => {
         if (element.qty >= 9 && movieSelect === element.movie) {
-          alert("Número máximo de filmes adicionados");
+          toast.info("Limite máximo deste filme no carrinho");
+          dispatch(addCart(check));
         } else if (element.movie.id === movieSelect.id) {
           return {
             price: parseFloat((element.price + 9.99).toFixed(2)),
@@ -76,7 +79,7 @@ export const addCartThunk =
           movie: element.movie,
         };
       });
-
+      toast.success("Adicionado ao carrinho");
       dispatch(addCart(check));
     } else {
       const actualMovie = {
@@ -84,6 +87,7 @@ export const addCartThunk =
         qty: intialQuantity,
         movie: movieSelect,
       };
+      toast.success("Adicionado ao carrinho");
       dispatch(addCart([...moviescart, actualMovie]));
     }
   };
