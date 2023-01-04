@@ -1,6 +1,7 @@
 import { CartResumeBox, FormBox, MoviesCartBox, EndCart } from "./style";
 
 import { MovieInEndCartComponent } from "../../components/MovieEndCart";
+import { ModalComponent } from "../../components/Modal";
 
 import { Input } from "../../components/Input";
 
@@ -57,6 +58,8 @@ export const CartResume = () => {
   const moviesCart = useSelector((store: StoreProps) => store.moviescart);
 
   const [values, setValues] = useState({ cpf: "", cep: "", cel: "" });
+  const [modal, setModal] = useState(false);
+  const [user, setUser] = useState({} as UserData);
 
   let cartValue = 0;
 
@@ -137,11 +140,18 @@ export const CartResume = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<UserData>({ resolver: yupResolver(formSchema) });
 
   const checkout = (data: UserData) => {
     console.log(data);
+    if (cartValue > 0) {
+      setModal(true);
+      setUser(data);
+    } else {
+      alert("Carrinho está vazio!");
+    }
   };
 
   return (
@@ -253,6 +263,9 @@ export const CartResume = () => {
             </EndCart>
           </div>
         </FormBox>
+        {modal ? (
+          <ModalComponent setModal={setModal} name={user.name} reset={reset} />
+        ) : null}
       </CartResumeBox>
     </>
   );

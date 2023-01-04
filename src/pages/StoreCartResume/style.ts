@@ -42,8 +42,6 @@ export const FormBox = styled.div`
   > div {
     width: 320px;
 
-    margin-top: 40px;
-
     ul {
       display: flex;
       width: 100%;
