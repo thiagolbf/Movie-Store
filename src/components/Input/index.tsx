@@ -9,10 +9,6 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   inputWidth: string;
 }
 
-// export const Input = ({ inputWidth, ...rest }: InputProps) => {
-//   return <InputContainer inputWidth={inputWidth} {...rest} />;
-// };
-
 const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
   { inputWidth, ...rest },
   ref
