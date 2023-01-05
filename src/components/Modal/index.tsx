@@ -5,6 +5,7 @@ import { UseFormReset } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 import { removeAllCartThunk } from "../../store/modules/cart/thunks";
+import { getPopularMoviesThunk } from "../../store/modules/popularmovies/thunks";
 
 interface UserData {
   name: string;
@@ -42,6 +43,7 @@ export const ModalComponent = ({
             onClick={() => {
               reset();
               dispatch(removeAllCartThunk());
+              dispatch(getPopularMoviesThunk(1));
               navigate("/");
             }}
           >

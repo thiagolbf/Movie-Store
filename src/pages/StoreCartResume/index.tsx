@@ -96,7 +96,7 @@ export const CartResume = () => {
       .max(14, "Número do celular deve ter 9 digitos"),
   });
 
-  // Para CPF ---------------
+  // ------- CPF FORMAT ----------
 
   const handleChangeCpfInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     // Atualiza o valor do input de CPF com o valor formatado
@@ -112,9 +112,7 @@ export const CartResume = () => {
     setValues({ ...values, cpf: event.target.value });
   };
 
-  // ----------------------------------
-
-  // Para CEP -------------
+  // ------- CEP FORMAT ----------
 
   const handleChangeCepInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.target.value = event.target.value.replace(/(\d{5})(\d{3})/, "$1-$2");
@@ -122,7 +120,7 @@ export const CartResume = () => {
     setValues({ ...values, cep: event.target.value });
   };
 
-  // ----------------------------------
+  // ------- CEL FORMAT ----------
 
   const handleChangeCelInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.value.length < 3) {
