@@ -12,7 +12,7 @@ export const Header = styled.header`
   font-family: var(--roboto);
 
   > h3 {
-    margin-left: 30px;
+    margin: 0 10px;
     cursor: pointer;
   }
 `;
