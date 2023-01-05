@@ -66,7 +66,7 @@ export const searchPopularMoviesThunk =
         )
         .then((res) => {
           const filter = res.data.results.filter((element: Movie) => {
-            return element.title.toLowerCase().includes(letter);
+            return element.title.toLowerCase().includes(letter.toLowerCase());
           });
           const novo = {
             page: teste.popularmovies.page,
