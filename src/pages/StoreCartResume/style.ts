@@ -22,6 +22,7 @@ export const FormBox = styled.div`
 
   form {
     width: 320px;
+    margin-bottom: 50px;
     > h2 {
       font-family: var(--roboto);
       text-transform: capitalize;
