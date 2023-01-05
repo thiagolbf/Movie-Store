@@ -18,5 +18,3 @@ const reducers = combineReducers({
 });
 
 export const store = legacy_createStore(reducers, applyMiddleware(thunk));
-
-export type AppDispatch = typeof store.dispatch;

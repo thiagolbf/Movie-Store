@@ -49,7 +49,7 @@ export const addCartThunk =
     const initialPrice: number = 9.99;
     const intialQuantity = 1;
 
-    const checando = moviescart.some((element) => {
+    const checkMovie = moviescart.some((element) => {
       return element.movie === movieSelect;
     });
 
@@ -61,7 +61,7 @@ export const addCartThunk =
       };
       toast.success("Adicionado ao carrinho");
       dispatch(addCart([actualMovie]));
-    } else if (moviescart.length > 0 && checando) {
+    } else if (moviescart.length > 0 && checkMovie) {
       const check = moviescart.map((element) => {
         if (element.qty >= 9 && movieSelect === element.movie) {
           toast.info("Limite máximo deste filme no carrinho");
