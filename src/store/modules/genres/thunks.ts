@@ -15,12 +15,4 @@ export const getGenresThunk = () => (dispatch: Dispatch) => {
     .catch((err) => {
       console.log(err);
     });
-
-  // const getData = async () => {
-  //   const response = await moviesApi.get(
-  //     "https://api.themoviedb.org/3/genre/movie/list?api_key=41c0ef2437f7b84f0296214347b788c7&language=pt-BR"
-  //   );
-  //   dispatch(getGenres(response.data.genres));
-  // };
-  // getData();
 };

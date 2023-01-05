@@ -29,8 +29,6 @@ export const addFavThunk =
       return element.id === movieSelect.id;
     });
 
-    console.log(check);
-
     if (!check) {
       dispatch(addFav([...moviesfav, movieSelect]));
     } else {

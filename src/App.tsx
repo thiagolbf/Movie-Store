@@ -11,7 +11,7 @@ function App() {
     <>
       <GlobalStyle />
       <ToastContainer
-        position="top-right"
+        position="top-left"
         autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}
